@@ -3,15 +3,44 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <img class="navImg" src="../../assets/test/logo.png" />
+          <ion-title class="titleicon">Home</ion-title>
+        </ion-col>
+        <ion-col col-1>
+
+        </ion-col>
+        <ion-col col-2>
+          <img class="navImg" src="../../assets/test/search.png" item-right>
+        </ion-col>
+        <ion-col col-3>
+
+        </ion-col>
+        <ion-col col-3 class="userColNav">
+          <ion-title item-right class="titleicon">Marty McFly</ion-title>
+          <ion-avatar item-right class="navAvatar">
+            <img class="navImg" src="../../assets/test/femaleAv.png" item-right>
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-arrow-dropdown"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>IPA Portal</h3>
 
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+    main content here
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>

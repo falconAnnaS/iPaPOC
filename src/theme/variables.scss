@@ -86,3 +86,28 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+.titleicon{
+  display:inline-block
+}
+.navImg{
+  height: 27px;
+  display:inline-block
+}
+.navAvatar{
+  display:inline-block
+}
+.item.item-md.ionItemTransparent{
+  background-color: transparent;
+  border: none;
+  border-bottom-color:transparent;
+}
+.item-inner{
+  border:none;
+  border-bottom-color: transparent;
+  border-color: transparent;
+}
+.userColNav{
+  text-align: right;
+}
