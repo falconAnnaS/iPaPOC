@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ProjectsPage } from '../pages/projects/projects';
 import { WorkbooksPage } from '../pages/workbooks/workbooks';
 import { DashboardsPage } from '../pages/dashboards/dashboards';
+import { UserAccountPopoverPage } from '../pages/user-account-popover/user-account-popover';
 
 @Component({
   templateUrl: 'app.html'

@@ -10,6 +10,7 @@ import { DashboardsPage } from '../pages/dashboards/dashboards';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { UserAccountPopoverPage } from '../pages/user-account-popover/user-account-popover';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ProjectsPage,
     WorkbooksPage,
-    DashboardsPage
+    DashboardsPage,
+    UserAccountPopoverPage
   ],
   imports: [
     BrowserModule,
@@ -27,10 +29,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-
     ProjectsPage,
     WorkbooksPage,
-    DashboardsPage
+    DashboardsPage,
+    UserAccountPopoverPage
   ],
   providers: [
     StatusBar,
