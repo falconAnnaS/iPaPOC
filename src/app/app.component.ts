@@ -3,11 +3,12 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { ProjectsPage } from '../pages/projects/projects';
 import { WorkbooksPage } from '../pages/workbooks/workbooks';
 import { DashboardsPage } from '../pages/dashboards/dashboards';
 import { UserAccountPopoverPage } from '../pages/user-account-popover/user-account-popover';
+import { PropertyViewerPage } from '../pages/property-viewer/property-viewer';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,7 @@ import { UserAccountPopoverPage } from '../pages/user-account-popover/user-accou
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = ProjectsPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -24,10 +25,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
       { title: 'Projects', component: ProjectsPage },
       { title: 'Workbooks', component: WorkbooksPage },
-      { title: 'Dashboards', component: DashboardsPage }
+      { title: 'Dashboards', component: DashboardsPage },
+      { title: 'Property Viewer', component: PropertyViewerPage }
     ];
   }
 

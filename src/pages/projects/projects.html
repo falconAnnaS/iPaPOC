@@ -33,10 +33,11 @@
 
         </ion-col>
         <ion-col col-2>
-          <!-- <img class="navImg" src="../../assets/test/search.png" item-right> -->
+          <img class="navImg" src="../../assets/test/search.png" item-right>
 
-          <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
-          </ion-searchbar>
+          <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
+          </ion-searchbar> -->
+
 
         </ion-col>
         <ion-col col-3>
@@ -60,7 +61,52 @@
 </ion-header>
 
 <ion-content>
-  <h3>My Projects</h3>
+  <h2>My Projects</h2>
+  <h3>Search inside projects</h3>
+  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)">
+  </ion-searchbar> -->
+
+  <!-- <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type"> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <strong>Name</strong>
+      </ion-col>
+      <ion-col col-2>
+        <strong>Workbooks</strong>
+      </ion-col>
+      <ion-col col-2>
+        <strong>Dashboards</strong>
+      </ion-col>
+      <ion-col col-2>
+        <strong>Views</strong>
+      </ion-col>
+      <ion-col col-2>
+        <strong>Created</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let project of projects">
+      <ion-col col-4>
+        {{ project.name }}
+      </ion-col>
+      <ion-col col-2>
+        {{ project.id }}
+      </ion-col>
+      <ion-col col-2>
+
+      </ion-col>
+      <ion-col col-2>
+
+      </ion-col>
+      <ion-col col-2>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
   <ion-list>
     <ion-item *ngFor="let item of items">
