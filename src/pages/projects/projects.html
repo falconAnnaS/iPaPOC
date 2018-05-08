@@ -72,8 +72,11 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-4>
+      <ion-col col-3>
         <strong>Name</strong>
+      </ion-col>
+      <ion-col col-3>
+        <strong>Description</strong>
       </ion-col>
       <ion-col col-2>
         <strong>Workbooks</strong>
@@ -84,34 +87,34 @@
       <ion-col col-2>
         <strong>Views</strong>
       </ion-col>
-      <ion-col col-2>
-        <strong>Created</strong>
-      </ion-col>
+
     </ion-row>
     <ion-row *ngFor="let project of projects">
-      <ion-col col-4>
+
+      <ion-col col-3>
         {{ project.name }}
       </ion-col>
-      <ion-col col-2>
-        {{ project.id }}
+      <ion-col col-3>
+        {{ project.description }}
       </ion-col>
       <ion-col col-2>
+        {{project.contentPermissions}}
+      </ion-col>
+      <ion-col col-2>
+        no info
+      </ion-col>
+      <ion-col col-2>
+        no info
+      </ion-col>
 
-      </ion-col>
-      <ion-col col-2>
-
-      </ion-col>
-      <ion-col col-2>
-
-      </ion-col>
     </ion-row>
   </ion-grid>
 
-
+  <!-- 
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item }}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>

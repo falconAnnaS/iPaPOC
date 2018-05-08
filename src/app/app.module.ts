@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserAccountPopoverPage } from '../pages/user-account-popover/user-account-popover';
 import { PropertyViewerPage } from '../pages/property-viewer/property-viewer';
 // import { FilterPipe } from '../app/pipes/pipes';
+import { HttpClientModule } from '@angular/common/http';
+import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { PropertyViewerPage } from '../pages/property-viewer/property-viewer';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -37,7 +40,8 @@ import { PropertyViewerPage } from '../pages/property-viewer/property-viewer';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    RestProvider
   ]
 })
 export class AppModule { }

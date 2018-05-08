@@ -3,13 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { UserAccountPopoverPage } from '../user-account-popover/user-account-popover';
 // import { FilterPipe } from '../../app/pipes/pipes';
+import { RestProvider } from '../../providers/rest/rest';
 
-/**
- * Generated class for the ProjectsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -21,25 +17,16 @@ export class ProjectsPage {
   searchQuery: string = '';
   items: string[];
   projects: Object[];
+  project: Object;
+  projectsList: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
-    this.initializeItems();
-    this.initializeProjects();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, public restProvider: RestProvider) {
+    //  this.initializeProjects();
+    this.getAllProjects();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProjectsPage');
-  }
-
-  initializeItems() {
-    this.items = [
-      'Amazon',
-      'Allegro',
-      'IBM',
-      'Loreal',
-      'HP',
-      'GE'
-    ];
   }
 
   initializeProjects() {
@@ -191,14 +178,17 @@ export class ProjectsPage {
     }
   }
 
-
-  // filterIt(ev: any) {
-  //   this.initializeProjects();
-  //   let val = ev.target.value;
-  //   if (val && val.trim() != '') {
-  //     return this.projects.filter(obj => Object.keys(obj).some(key => obj[key].includes(ev)));
-  //   }
-  // }
+  getAllProjects() {
+    this.restProvider.getAllProjects()
+      .then(data => {
+        // this.project = data;
+        // console.log("this.project is: " + this.project);
+        this.projects = data["project"];
+        console.log(this.project);
+        this.projectsList = JSON.stringify(data);
+        console.log("getAllProjectsProject list is: " + this.projectsList);
+      });
+  }
 
   presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(UserAccountPopoverPage, {}, { cssClass: 'contact-popover', enableBackdropDismiss: true });
