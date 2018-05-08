@@ -21,7 +21,6 @@ export class RestProvider {
     return new Promise(resolve => {
       this.http.get(this.projectsUrl).subscribe(data => {
         resolve(data);
-        //console.log("data is: " + data);
       }, err => {
         console.log(err);
       });

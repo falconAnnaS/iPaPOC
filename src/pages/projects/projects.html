@@ -63,58 +63,97 @@
 <ion-content>
   <h2>My Projects</h2>
   <h3>Search inside projects</h3>
-  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
-  </ion-searchbar>
-  <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)">
-  </ion-searchbar> -->
-
-  <!-- <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type"> -->
 
   <ion-grid>
     <ion-row>
-      <ion-col col-3>
-        <strong>Name</strong>
+      <ion-col col-9>
+        <strong>My Projects</strong>
+        <br> Search inside projects
       </ion-col>
-      <ion-col col-3>
-        <strong>Description</strong>
+      <ion-col col-1 class="rightAlign">
+        <strong>Views: </strong>
       </ion-col>
-      <ion-col col-2>
-        <strong>Workbooks</strong>
+      <ion-col col-1 class="rightAlign">
+        <button ion-button icon-only (click)="switchToTilesView()">
+          <ion-icon name="apps"></ion-icon>
+        </button>
       </ion-col>
-      <ion-col col-2>
-        <strong>Dashboards</strong>
+      <ion-col col-1 class="leftAlign">
+        <button ion-button icon-only (click)="switchToListView()">
+          <ion-icon name="list"></ion-icon>
+        </button>
       </ion-col>
-      <ion-col col-2>
-        <strong>Views</strong>
-      </ion-col>
-
-    </ion-row>
-    <ion-row *ngFor="let project of projects">
-
-      <ion-col col-3>
-        {{ project.name }}
-      </ion-col>
-      <ion-col col-3>
-        {{ project.description }}
-      </ion-col>
-      <ion-col col-2>
-        {{project.contentPermissions}}
-      </ion-col>
-      <ion-col col-2>
-        no info
-      </ion-col>
-      <ion-col col-2>
-        no info
-      </ion-col>
-
     </ion-row>
   </ion-grid>
 
-  <!-- 
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item }}
-    </ion-item>
-  </ion-list> -->
+  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <!-- <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type"> -->
+
+  <div class="card-background-page" [ngSwitch]="switch_views">
+    <div *ngSwitchCase="'tiles_case'">
+      tiles view
+
+      <ion-row>
+        <ion-col col-3 *ngFor="let project of projects">
+          <ion-card>
+            <img src="../../assets/test/test_card.jpeg" />
+            <div class="card-title">
+              {{ project.name }}
+            </div>
+            <div class="card-subtitle"> {{ project.description }}</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+    </div>
+
+    <div *ngSwitchCase="'list_case'">
+      list view
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <strong>Name</strong>
+          </ion-col>
+          <ion-col col-3>
+            <strong>Description</strong>
+          </ion-col>
+          <ion-col col-2>
+            <strong>Workbooks</strong>
+          </ion-col>
+          <ion-col col-2>
+            <strong>Dashboards</strong>
+          </ion-col>
+          <ion-col col-2>
+            <strong>Views</strong>
+          </ion-col>
+
+        </ion-row>
+        <ion-row *ngFor="let project of projects">
+
+          <ion-col col-3>
+            {{ project.name }}
+          </ion-col>
+          <ion-col col-3>
+            {{ project.description }}
+          </ion-col>
+          <ion-col col-2>
+            {{project.contentPermissions}}
+          </ion-col>
+          <ion-col col-2>
+            no info
+          </ion-col>
+          <ion-col col-2>
+            no info
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
 
 </ion-content>
